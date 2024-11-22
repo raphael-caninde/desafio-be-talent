@@ -1,11 +1,12 @@
 import Header from '../../components/Header';
+import SearcSection from '../../components/SearchSection';
+//import styles from './Home.module.css';
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Header />
-
-      <h2>Home</h2>
-    </div>
+      <SearcSection />
+    </main>
   );
 }
