@@ -6,13 +6,21 @@ import { formatPhone } from '../../utils/formatPhone';
 import { FaAngleDown } from 'react-icons/fa';
 import styles from './SearchSection.module.css';
 
-export default function SearchSection() {
+export default function EmployeeView() {
   const { employees } = useEmployee();
   const [expandedEmployee, setExpandedEmployee] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   const toggleDropdown = (id: number) => {
     setExpandedEmployee(expandedEmployee === id ? null : id);
   };
+
+  const filteredEmployees = employees.filter(
+    employee =>
+      employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.job.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.phone.includes(searchTerm)
+  );
 
   return (
     <section className={styles['search-section']}>
@@ -24,6 +32,8 @@ export default function SearchSection() {
             type='text'
             className={styles['search-section__input']}
             placeholder='Pesquisar'
+            value={searchTerm}
+            onChange={({ target }) => setSearchTerm(target.value)}
           />
 
           <IoSearch className={styles['search-section__input-icon']} />
@@ -42,22 +52,21 @@ export default function SearchSection() {
             </tr>
           </thead>
           <tbody>
-            {employees &&
-              employees.map(employee => (
-                <tr key={employee.id}>
-                  <td>
-                    <img
-                      src={employee.image}
-                      alt={employee.name}
-                      className={styles['employee-table__image']}
-                    />
-                  </td>
-                  <td>{employee.name}</td>
-                  <td>{employee.job}</td>
-                  <td>{formatDate(employee.admission_date)}</td>
-                  <td>{formatPhone(employee.phone)}</td>
-                </tr>
-              ))}
+            {filteredEmployees.map(employee => (
+              <tr key={employee.id}>
+                <td>
+                  <img
+                    src={employee.image}
+                    alt={employee.name}
+                    className={styles['employee-table__image']}
+                  />
+                </td>
+                <td>{employee.name}</td>
+                <td>{employee.job}</td>
+                <td>{formatDate(employee.admission_date)}</td>
+                <td>{formatPhone(employee.phone)}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -69,8 +78,8 @@ export default function SearchSection() {
           <div className={styles['dot-white']} />
         </div>
 
-        {employees &&
-          employees.map(employee => (
+        {filteredEmployees &&
+          filteredEmployees.map(employee => (
             <div
               key={employee.id}
               className={`${styles['employee-item']} ${
