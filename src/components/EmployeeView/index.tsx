@@ -11,7 +11,16 @@ export default function EmployeeView() {
 
   const filteredEmployees = employees.filter(
     employee =>
-      employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.name
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .includes(
+          searchTerm
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+        ) ||
       employee.job.toLowerCase().includes(searchTerm.toLowerCase()) ||
       employee.phone.includes(searchTerm)
   );
