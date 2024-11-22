@@ -24,7 +24,7 @@ export default function EmployeeListMobile({ filteredEmployees }: Props) {
         <div className={styles['dot-white']} />
       </div>
 
-      {filteredEmployees &&
+      {!!filteredEmployees.length &&
         filteredEmployees.map(employee => (
           <div
             key={employee.id}
@@ -66,6 +66,12 @@ export default function EmployeeListMobile({ filteredEmployees }: Props) {
             )}
           </div>
         ))}
+
+      {!filteredEmployees.length && (
+        <span className={styles['no-results-message']}>
+          Funcionário não encontrado!
+        </span>
+      )}
     </div>
   );
 }

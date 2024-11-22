@@ -20,24 +20,33 @@ export default function EmplyeeTable({ filteredEmployees }: Props) {
             <th>TELEFONE</th>
           </tr>
         </thead>
-        <tbody>
-          {filteredEmployees.map(employee => (
-            <tr key={employee.id}>
-              <td>
-                <img
-                  src={employee.image}
-                  alt={employee.name}
-                  className={styles['employee-table__image']}
-                />
-              </td>
-              <td>{employee.name}</td>
-              <td>{employee.job}</td>
-              <td>{formatDate(employee.admission_date)}</td>
-              <td>{formatPhone(employee.phone)}</td>
-            </tr>
-          ))}
-        </tbody>
+
+        {!!filteredEmployees.length && (
+          <tbody>
+            {filteredEmployees.map(employee => (
+              <tr key={employee.id}>
+                <td>
+                  <img
+                    src={employee.image}
+                    alt={employee.name}
+                    className={styles['employee-table__image']}
+                  />
+                </td>
+                <td>{employee.name}</td>
+                <td>{employee.job}</td>
+                <td>{formatDate(employee.admission_date)}</td>
+                <td>{formatPhone(employee.phone)}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
+
+      {!filteredEmployees.length && (
+        <span className={styles['no-results-message']}>
+          Funcionário não encontrado!
+        </span>
+      )}
     </div>
   );
 }

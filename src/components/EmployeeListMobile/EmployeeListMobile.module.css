@@ -1,6 +1,9 @@
 .container-mobile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   margin: 0 2rem;
   border-radius: 10px;
 
@@ -12,6 +15,7 @@
 .container-mobile-header {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 2.4rem;
   padding: 1.4rem 2rem;
   background-color: var(--blue-primary);
@@ -33,6 +37,7 @@
 }
 
 .employee-item {
+  width: 100%;
   border: 1px solid var(--gray-10);
   overflow: hidden;
   background-color: var(--white);
@@ -101,4 +106,10 @@
 
 .employee-details strong {
   font-size: 1.6rem;
+}
+
+.no-results-message {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin-top: 3rem;
 }

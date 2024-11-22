@@ -1,5 +1,9 @@
 .table-wrapper {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   margin: 0 2rem;
 
   @media (max-width: 680px) {
@@ -47,4 +51,10 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.no-results-message {
+  font-size: 2rem;
+  color: var(--black);
+  margin-top: 3rem;
 }
