@@ -13,9 +13,10 @@ Antes de rodar a aplicação, certifique-se de que tem os seguintes pré-requisi
 ## Como Rodar a Aplicação
 
 1. **Clone o Repositório**:  
- Você deve clonar o repositório localmente.  
+ Você deve clonar o repositório localmente com o comando:  
+`git clone git@github.com:raphael-caninde/desafio-be-talent.git`  
 
-2. **Instale as Dependências**:  
+3. **Instale as Dependências**:  
  Instale as dependências utilizando o comando:  
 `npm install` ou `yarn`  
    
@@ -27,5 +28,5 @@ Antes de rodar a aplicação, certifique-se de que tem os seguintes pré-requisi
  Para executar a aplicação, execute o comando:  
 `npm run dev` ou `yarn dev`  
     
-6. **Acesse a Aplicação**:  
+6.**Acesse a Aplicação**:  
  Depois de rodar os comandos, você pode acessar o projeto via `http://localhost:5173`.  
