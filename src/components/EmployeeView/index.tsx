@@ -44,6 +44,7 @@ export default function EmployeeView() {
       </div>
 
       <EmplyeeTable filteredEmployees={filteredEmployees} />
+
       <EmployeeListMobile filteredEmployees={filteredEmployees} />
     </section>
   );

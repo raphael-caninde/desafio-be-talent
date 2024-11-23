@@ -1,6 +1,8 @@
 import { EmployeeType } from '../../@types/employeeType';
+import { useEmployee } from '../../hooks/useEmployee';
 import { formatDate } from '../../utils/formatDate';
 import { formatPhone } from '../../utils/formatPhone';
+import Loading from '../Loading';
 import styles from './EmployeeTable.module.css';
 
 interface Props {
@@ -8,6 +10,8 @@ interface Props {
 }
 
 export default function EmplyeeTable({ filteredEmployees }: Props) {
+  const { loading } = useEmployee();
+
   return (
     <div className={styles['table-wrapper']}>
       <table className={styles['employee-table']}>
@@ -20,6 +24,8 @@ export default function EmplyeeTable({ filteredEmployees }: Props) {
             <th>TELEFONE</th>
           </tr>
         </thead>
+
+        {loading && <Loading />}
 
         {!!filteredEmployees.length && (
           <tbody>
@@ -42,7 +48,7 @@ export default function EmplyeeTable({ filteredEmployees }: Props) {
         )}
       </table>
 
-      {!filteredEmployees.length && (
+      {!loading && !filteredEmployees.length && (
         <span className={styles['no-results-message']}>
           Funcionário não encontrado!
         </span>

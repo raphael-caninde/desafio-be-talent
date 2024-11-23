@@ -3,6 +3,8 @@ import { EmployeeType } from '../../@types/employeeType';
 import { formatDate } from '../../utils/formatDate';
 import { formatPhone } from '../../utils/formatPhone';
 import { FaAngleDown } from 'react-icons/fa';
+import { useEmployee } from '../../hooks/useEmployee';
+import Loading from '../Loading';
 import styles from './EmployeeListMobile.module.css';
 
 interface Props {
@@ -11,6 +13,7 @@ interface Props {
 
 export default function EmployeeListMobile({ filteredEmployees }: Props) {
   const [expandedEmployee, setExpandedEmployee] = useState<number | null>(null);
+  const { loading } = useEmployee();
 
   const toggleDropdown = (id: number) => {
     setExpandedEmployee(expandedEmployee === id ? null : id);
@@ -23,6 +26,8 @@ export default function EmployeeListMobile({ filteredEmployees }: Props) {
         <h2>Nome</h2>
         <div className={styles['dot-white']} />
       </div>
+
+      {loading && <Loading />}
 
       {!!filteredEmployees.length &&
         filteredEmployees.map(employee => (
@@ -67,7 +72,7 @@ export default function EmployeeListMobile({ filteredEmployees }: Props) {
           </div>
         ))}
 
-      {!filteredEmployees.length && (
+      {!loading && !filteredEmployees.length && (
         <span className={styles['no-results-message']}>
           Funcionário não encontrado!
         </span>
