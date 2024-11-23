@@ -1,50 +1,20 @@
-# React + TypeScript + Vite
+# Sobre o projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O projeto é uma aplicação web construída para gerenciar informações de funcionários. O sistema permite realizar buscas, filtros e exibição de dados de funcionários de forma interativa. Utiliza o React para criação da interface.
 
-Currently, two official plugins are available:
+## Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de rodar a aplicação, certifique-se de que tem os seguintes pré-requisitos:
 
-## Expanding the ESLint configuration
+1. **Node.js** (versão 16.x ou superior). Para verificar se você tem o Node.js instalado, use o comando:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+`node -v`
 
-- Configure the top-level `parserOptions` property like this:
+## Como Rodar a Aplicação## Como Rodar a Aplicação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone o Repositório**: Você deve clonar o repositório localmente.
+2. **Instale as Dependências do Backend**: O backend deve ser configurado e rodado localmente (com o JSON Server, por exemplo).
+3. **Inicie o JSON Server**: Se você estiver usando uma API local com o `json-server`, deve rodar o comando `json-server --watch db.json --port 3001`.
+4. **Instale as Dependências do Frontend**: A instalação das dependências do frontend é feita dentro da pasta `frontend`.
+5. **Inicie o Servidor de Desenvolvimento**: Para rodar o frontend, basta executar o comando `npm run dev` ou `yarn dev`.
+6. **Acesse a Aplicação**: Depois de rodar os dois servidores (backend e frontend), você pode acessar o projeto via `http://localhost:3000`.
