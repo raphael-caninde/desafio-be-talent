@@ -12,15 +12,15 @@ Antes de rodar a aplicação, certifique-se de que tem os seguintes pré-requisi
 
 ## Como Rodar a Aplicação
 
-1. **Clone o Repositório**:  
- Você deve clonar o repositório localmente com o comando:  
+1.**Clone o Repositório**:  
+  Você deve clonar o repositório localmente com o comando:  
 `git clone git@github.com:raphael-caninde/desafio-be-talent.git`  
 
-3. **Instale as Dependências**:  
- Instale as dependências utilizando o comando:  
+3.**Instale as Dependências**:  
+  Instale as dependências utilizando o comando:  
 `npm install` ou `yarn`  
    
-4. **Inicie o JSON Server**:  
+4.**Inicie o JSON Server**:  
  Com as dependências instaladas, execute o comando:  
 `yarn json-server --watch db.json` ou `npm json-server --watch db.json`  
 
