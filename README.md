@@ -10,11 +10,22 @@ Antes de rodar a aplicação, certifique-se de que tem os seguintes pré-requisi
 
 `node -v`
 
-## Como Rodar a Aplicação## Como Rodar a Aplicação
+## Como Rodar a Aplicação
 
-1. **Clone o Repositório**: Você deve clonar o repositório localmente.
-2. **Instale as Dependências do Backend**: O backend deve ser configurado e rodado localmente (com o JSON Server, por exemplo).
-3. **Inicie o JSON Server**: Se você estiver usando uma API local com o `json-server`, deve rodar o comando `json-server --watch db.json --port 3001`.
-4. **Instale as Dependências do Frontend**: A instalação das dependências do frontend é feita dentro da pasta `frontend`.
-5. **Inicie o Servidor de Desenvolvimento**: Para rodar o frontend, basta executar o comando `npm run dev` ou `yarn dev`.
-6. **Acesse a Aplicação**: Depois de rodar os dois servidores (backend e frontend), você pode acessar o projeto via `http://localhost:3000`.
+1. **Clone o Repositório**:
+Você deve clonar o repositório localmente.
+
+2. **Instale as Dependências**:
+Instale as dependências utilizando o comando:
+`npm install` ou `yarn`
+   
+4. **Inicie o JSON Server**:
+Com as dependências instaladas, execute o comando:
+`yarn json-server --watch db.json` ou `npm json-server --watch db.json`
+
+5.**Inicie o Frontend**:
+Para executar a aplicação, execute o comando:
+`npm run dev` ou `yarn dev`
+    
+6. **Acesse a Aplicação**:
+Depois de rodar os comandos, você pode acessar o projeto via `http://localhost:5173`.
