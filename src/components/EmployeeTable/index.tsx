@@ -25,7 +25,15 @@ export default function EmplyeeTable({ filteredEmployees }: Props) {
           </tr>
         </thead>
 
-        {loading && <Loading />}
+        {loading && (
+          <tbody>
+            <tr>
+              <td>
+                <Loading />
+              </td>
+            </tr>
+          </tbody>
+        )}
 
         {!!filteredEmployees.length && (
           <tbody>

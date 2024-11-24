@@ -27,7 +27,15 @@ export default function EmployeeListMobile({ filteredEmployees }: Props) {
         <div className={styles['dot-white']} />
       </div>
 
-      {loading && <Loading />}
+      {loading && (
+        <tbody>
+          <tr>
+            <td>
+              <Loading />
+            </td>
+          </tr>
+        </tbody>
+      )}
 
       {!!filteredEmployees.length &&
         filteredEmployees.map(employee => (

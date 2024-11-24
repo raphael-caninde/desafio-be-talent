@@ -27,8 +27,6 @@ export const EmployeeProvider = ({ children }: EmployeeProviderProps) => {
 
   const fetchEmployees = async () => {
     try {
-      // await new Promise(resolve => setTimeout(resolve, 4000));
-
       const data = await fetchData('http://localhost:3000/employees');
 
       setEmployees(data);
